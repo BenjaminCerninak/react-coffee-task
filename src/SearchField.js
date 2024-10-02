@@ -4,16 +4,26 @@ export function SearchField({ setProductName, productName }) {
   }
 
   return (
-    <div>
-      <label>
-        <h1>Vyhledat produkt</h1>
-      </label>
-      <input
-        onChange={(e) => handleOnChangeSearch(e)}
-        type="text"
-        placeholder="zadejte název produktu"
-        value={productName}
-      ></input>
+    <div className="container">
+      <div className="row g-3 align-items-center">
+        <div className="col-auto">
+          <label for="inputPassword6" className="col-form-label">
+            Vyhledat produkt
+          </label>
+        </div>
+        <div className="col-auto">
+          <input
+            onChange={(e) => handleOnChangeSearch(e)}
+            type="text"
+            placeholder="zadejte název produktu"
+            value={productName}
+            className="form-control"
+          ></input>{" "}
+        </div>
+        <div className="col-auto">
+          <span className="form-text">Vyhledávání podle názvu produktu.</span>
+        </div>
+      </div>
     </div>
   );
 }

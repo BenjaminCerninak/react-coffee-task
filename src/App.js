@@ -1,5 +1,5 @@
 import { coffeeProductList } from "./coffeeProductList";
-
+import "./styles.css";
 import { useState } from "react";
 import { ListOfProducts } from "./ListOfProducts";
 import { SearchField } from "./SearchField";
@@ -34,20 +34,50 @@ export default function App() {
       ? filteredList.sort((a, b) => a.price - b.price)
       : [...filteredList];
 
+  // List of filter objects
+  const filters = [
+    {
+      label: "Podle země původu",
+      options: [
+        { label: "Brazílie", value: "Brazil" },
+        { label: "Costa Rica", value: "Costa Rica" },
+        { label: "Vietnam", value: "Vietnam" },
+      ],
+      selectedValue: originCountry,
+      onChange: setOriginCountry,
+    },
+    {
+      label: "Podle typu kávy",
+      options: [
+        { label: "Robusta", value: "Robusta" },
+        { label: "Arabica", value: "Arabica" },
+      ],
+      selectedValue: coffeeTypeFilterValue,
+      onChange: setCoffeeTypeFilterValue,
+    },
+    {
+      label: "Podle měny",
+      options: [
+        { label: "CZK", value: "CZK" },
+        { label: "USD", value: "USD" },
+      ],
+      selectedValue: currency,
+      onChange: setCurrency,
+    },
+    {
+      label: "Seřadit podle ceny",
+      options: [
+        { label: "Od nejnižší ceny", value: "asc" },
+        { label: "Od nejvyšší ceny", value: "desc" },
+      ],
+      selectedValue: sortPrice,
+      onChange: setSortPrice,
+    },
+  ];
+
   return (
     <div>
-      <SortField
-        setOriginCountry={setOriginCountry}
-        originCountry={originCountry}
-        setCoffeeTypeFilterValue={setCoffeeTypeFilterValue}
-        coffeeTypeFilterValue={coffeeTypeFilterValue}
-        setCoffeeProductsToRenderArr={setCoffeeProductsToRenderArr}
-        coffeeProductsToRenderArr={coffeeProductsToRenderArr}
-        currency={currency}
-        setCurrency={setCurrency}
-        sortPrice={sortPrice}
-        setSortPrice={setSortPrice}
-      />
+      <SortField filters={filters} />
       <SearchField
         setCoffeeProductsToRenderArr={setCoffeeProductsToRenderArr}
         productName={productName}

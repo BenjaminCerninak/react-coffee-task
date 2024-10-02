@@ -1,21 +1,27 @@
+import Card from "react-bootstrap/Card";
 import "./styles.css";
 export function ListOfProducts({ finalFilteredList }) {
   return (
-    <ul>
+    <div className="d-flex flex-column align-items-center">
       {finalFilteredList.map((item) => (
-        <li key={item.id}>
-          <h1>{item.name}</h1>
-          <h2>{item.country}</h2>
-          <h2>Typ: {item.type}</h2>
-
-          <h3>
-            Cena:{" "}
-            <b>
-              {item.price} {item.currency == "CZK" ? "Kč" : "$"}
-            </b>
-          </h3>
-        </li>
+        <Card
+          key={item.id}
+          border="secondary"
+          style={{ width: "22rem", margin: "15px" }}
+        >
+          <Card.Header>{item.name}</Card.Header>
+          <Card.Body>
+            <Card.Title>{item.country}</Card.Title>
+            <Card.Text>
+              Typ: {item.type}
+              Cena:{" "}
+              <b>
+                {item.price} {item.currency == "CZK" ? "Kč" : "$"}
+              </b>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       ))}
-    </ul>
+    </div>
   );
 }
