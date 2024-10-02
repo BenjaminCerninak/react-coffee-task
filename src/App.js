@@ -27,6 +27,15 @@ export default function App() {
         : true)
   );
 
+  const resetFilters = () => {
+    setProductName("");
+    setOriginCountry("");
+    setCoffeeTypeFilterValue("");
+    setCurrency("");
+    setSortPrice("asc");
+    setCoffeeProductsToRenderArr([...coffeeProductList]);
+  };
+
   const finalFilteredList =
     sortPrice === "asc"
       ? filteredList.sort((a, b) => b.price - a.price)
@@ -67,8 +76,8 @@ export default function App() {
     {
       label: "Seřadit podle ceny",
       options: [
-        { label: "Od nejnižší ceny", value: "asc" },
-        { label: "Od nejvyšší ceny", value: "desc" },
+        { label: "Od nejvyšší ceny", value: "asc" },
+        { label: "Od nejnižší ceny", value: "desc" },
       ],
       selectedValue: sortPrice,
       onChange: setSortPrice,
@@ -88,6 +97,7 @@ export default function App() {
         finalFilteredList={finalFilteredList}
         coffeeProductsToRenderArr={coffeeProductsToRenderArr}
       />
+      <button onClick={resetFilters} />
     </div>
   );
 }
