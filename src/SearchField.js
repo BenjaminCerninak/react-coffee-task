@@ -15,7 +15,7 @@ export function SearchField({ setProductName, productName }) {
           <input
             onChange={(e) => handleOnChangeSearch(e)}
             type="text"
-            placeholder="zadejte název produktu"
+            placeholder="zadejte produkt"
             value={productName}
             className="form-control"
           ></input>{" "}
