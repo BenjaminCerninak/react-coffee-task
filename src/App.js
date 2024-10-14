@@ -64,15 +64,7 @@ export default function App() {
       selectedValue: coffeeTypeFilterValue,
       onChange: setCoffeeTypeFilterValue,
     },
-    {
-      label: "Podle měny",
-      options: [
-        { label: "CZK", value: "CZK" },
-        { label: "USD", value: "USD" },
-      ],
-      selectedValue: currency,
-      onChange: setCurrency,
-    },
+
     {
       label: "Seřadit podle ceny",
       options: [
@@ -97,7 +89,6 @@ export default function App() {
         finalFilteredList={finalFilteredList}
         coffeeProductsToRenderArr={coffeeProductsToRenderArr}
       />
-      <button onClick={resetFilters} />
     </div>
   );
 }
