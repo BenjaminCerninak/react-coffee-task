@@ -113,12 +113,3 @@ h1 {
   font-weight: 500;
 }
 
-.center-div {
-  margin: auto;
-}
-
-.parent-div {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-}
